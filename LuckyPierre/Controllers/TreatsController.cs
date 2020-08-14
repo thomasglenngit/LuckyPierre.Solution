@@ -116,7 +116,7 @@ namespace LuckyPierre.Controllers
       }
       if(!string.IsNullOrEmpty(searchFlavor))
       {
-        var searchFlavors = _db.Flavors.Where(flavors => flavors.Title.Contains(searchFlavor)).ToList();
+        var searchFlavors = _db.Flavors.Where(flavors => flavors.FlavorName.Contains(searchFlavor)).ToList();
         ViewBag.FlavorId = searchFlavors;
       }
       return View(thisTreat);

@@ -36,9 +36,6 @@ namespace LuckyPierre.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                Patron patron = new Patron() { Name = model.Name, User = user };
-                _db.Patrons.Add(patron);
-                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             else

@@ -9,7 +9,7 @@ namespace LuckyPierre.Models
       this.Flavors = new HashSet<TreatFlavor>();
     }
     public int TreatId {get; set;}
-    public string Name {get; set;}
+    public string TreatName {get; set;}
     public int Batches { get; set; }
     public virtual ApplicationUser User {get; set;}
     public virtual ICollection<TreatFlavor> Flavors {get; set;}

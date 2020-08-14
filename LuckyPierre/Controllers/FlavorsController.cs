@@ -65,7 +65,7 @@ namespace LuckyPierre.Controllers
       {
         foreach(int id in TreatId)
         {
-          _db.FlavorsTreats.Add(new TreatFlavor() { TreatId = id, FlavorId = flavor.FlavorId});
+          _db.TreatsFlavors.Add(new TreatFlavor() { TreatId = id, FlavorId = flavor.FlavorId});
         }
       }
       _db.SaveChanges();
