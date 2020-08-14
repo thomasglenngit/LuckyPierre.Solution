@@ -81,7 +81,24 @@ Reopen the Navigator > Schemas tab. Right click and select Refresh All. Our new 
 #### Query
 The following is the query information for access this database on MySQL Workbench.
 ```
-
+CREATE DATABASE `thomas_glenn` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+CREATE TABLE `Flavors` (
+  `FlavorId` int(11) NOT NULL AUTO_INCREMENT,
+  `FlavorName` longtext,
+  `UserId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`FlavorId`),
+  KEY `IX_Flavors_UserId` (`UserId`),
+  CONSTRAINT `FK_Flavors_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `Treats` (
+  `TreatId` int(11) NOT NULL AUTO_INCREMENT,
+  `TreatName` longtext,
+  `Batches` int(11) NOT NULL,
+  `UserId` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`TreatId`),
+  KEY `IX_Treats_UserId` (`UserId`),
+  CONSTRAINT `FK_Treats_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ```
 
