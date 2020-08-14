@@ -16,7 +16,7 @@
 @using (Html.BeginForm())
 {
   <div class="form-group">
-    @Html.LabelFor(model => model.FlavorName)
+    @Html.LabelFor(model => model.FlavorName, "Flavor Name")
     @Html.TextBoxFor(model => model.FlavorName, new {@class = "form-control", @required  = "required"})
   </div>
   

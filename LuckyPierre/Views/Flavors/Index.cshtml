@@ -8,14 +8,14 @@
 
 <h3>Welcome @User.Identity.Name</h3>
 
-<p>Find book:</p>
+<p>Find Flavor:</p>
 @using (Html.BeginForm("Index", "Flavors", FormMethod.Get))
 {
   <p>@Html.TextBox("searchTreat")</p>
   <button class="btn" type="submit">Search</button>
 }
 <hr />
-<h4>Flavor list:</h4>
+<h4>Flavors:</h4>
 <hr />
 @if (Model.Any())
 {
