@@ -7,6 +7,8 @@
 ## Description
 A weekly code review project for Epicodus school, which allows the Pierre, an ambitious baker, and now candy maker, to manage and market his sweet and savory confections. This project demonstrates many-to-many-many database relationships, with user authentication. 
 
+<img src="LuckyPierre/wwwroot/assets/images/LPLoginPg.png"          style="float: left; margin-right: 10px;" />
+
 
 The following sitemap explains this database query relationship between Flavors and Treats in this schema.
 
