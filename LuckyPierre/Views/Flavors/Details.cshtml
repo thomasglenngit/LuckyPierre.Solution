@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+@using System.Security.Claims
+@model LuckyPierre.Models.Flavor;
+
+<h3>Flavor Details</h3>
+<hr />
+<h4>Name: @Model.FlavorName</h4>
+<hr />
+<h4>Treats:</h4>
+<hr />
+@if(@Model.Treats.Count == 0)
+{
+  <h3>You are so creative! We don't have anything in that flavor...</h3>
+}
+else
+{
+  @foreach(var join in Model.Treats)
+  {
+    <p>@Html.ActionLink(@join.Treat.TreatName, "Details", "Treats", new {id = join.TreatId})</p>
+    @if (User.Identity.IsAuthenticated && ViewBag.IsCurrentUser)
+    {
+      @using (Html.BeginForm("DeleteTreat", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Delete" class="btn btn-warning"/>
+      }
+    }   
+  }
+}

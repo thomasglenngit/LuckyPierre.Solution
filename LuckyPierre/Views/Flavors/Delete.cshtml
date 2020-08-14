@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model LuckyPierre.Models.Flavor
+
+<h3>Remove this this Flavor</h3>
+<hr />
+<h4>@Html.DisplayFor(model => model.FlavorName)</h4>
+<p>Are you sure you want to get rid of this flavor?</p>
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" class="btn btn-danger" />
+}
+<p>@Html.ActionLink("Back to Flavors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

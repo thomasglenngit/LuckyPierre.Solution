@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Library.Models;
+@using System.Security.Claims
+@model List<Library.Models.Book>
+
+<h3>Welcome @User.Identity.Name</h3>
+
+<p>Find book:</p>
+@using (Html.BeginForm("Index", "Flavors", FormMethod.Get))
+{
+  <p>@Html.TextBox("searchTreat")</p>
+  <button class="btn" type="submit">Search</button>
+}
+<hr />
+<h4>Flavor list:</h4>
+<hr />
+@if (Model.Any())
+{
+  @foreach (Flavor flavor in Model)
+  {
+    <p>@Html.ActionLink($"{flavor.FlavorName}", "Details", new { id = flavor.FlavorId })</p> 
+  }
+}
+else
+{
+  <p>Ewww. Are you sure about that flavor?</p>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Add new flavor", "Create")</p>
+}
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

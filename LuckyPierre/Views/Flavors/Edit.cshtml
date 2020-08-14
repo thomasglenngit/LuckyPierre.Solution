@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@using LuckyPierre.Models;
+@model LuckyPierre.Models.Flavor;
+
+<h3>Edit Flavor Details:</h3>
+<hr />
+<h4>@Html.DisplayFor(model => @Model.FlavorName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+  <div class="form-group">
+    @Html.LabelFor(model => model.FlavorName)
+    @Html.EditorFor(model => model.FlavorName, new { @class = "form-control", @required = true})
+  </div>
+  
+  <input type="submit" value="Edit Flavor" class="btn btn-success" />
+}
+
+<p>@Html.ActionLink("Back to Flavors", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
