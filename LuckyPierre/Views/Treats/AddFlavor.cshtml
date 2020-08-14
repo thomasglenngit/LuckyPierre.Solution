@@ -1,0 +1,43 @@
+@{
+  Layout = "_Layout";
+}
+
+@using LuckyPierre.Models
+@model LuckyPierre.Models.Treat
+
+<p>Find Flavor:</p>
+@using (Html.BeginForm("AddFlavor", "Treats", FormMethod.Get, new { id = @Model.TreatId}))
+{ 
+  <p>@Html.TextBox("searchFlavor")</p>// search flavors?
+  <button class="btn" type="submit">Search</button>
+}
+@if(ViewBag.FlavorId != null) //Does it exist?
+{
+  if(ViewBag.FlavorId.Count != 0) //Is there anything in it?
+  {
+    <h3>Add flavor to an treat:</h3>
+    <hr />
+    <p class="info">@Html.DisplayFor(model => model.FlavorName)</p>
+    @using (Html.BeginForm())
+    {
+      @Html.HiddenFor(model => model.TreatId)
+      <div class="form-group"> 
+        @Html.Label("Select Flavor:")
+        <br>
+        @foreach (Flavor flavor in ViewBag.FlavorId)
+        {
+          @Html.Label(flavor.FlavorName)
+          @Html.CheckBox("FlavorId", false, new { value = flavor.FlavorId, @class="checkbox"})
+        }
+      </div>
+      <input type="submit" value="Add Flavor" class="btn" />
+    }
+  }
+  else
+  {
+    <p>No flavors have been found.</p>
+  }
+}
+
+<p>@Html.ActionLink("Back to Treat List", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
