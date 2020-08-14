@@ -29,7 +29,7 @@
         <br>
         @foreach (Treat treat in ViewBag.TreatId)
         {
-          @Html.Label(Treat.TreatName)
+          @Html.Label(treat.TreatName)
           @Html.CheckBox("TreatId", false, new { value = treat.TreatId, @class="checkbox"})
         }
       </div>

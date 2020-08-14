@@ -26,11 +26,8 @@
         <br>
         @foreach (Treat treat in ViewBag.TreatList)
         {
-          @Html.Label(Treat.TreatName)
-          @Html.CheckBox("TreatList", false, new { value = Treat.TreatId, @class="checkbox"})
-
-          @Html.Label(Treat.Batches)
-          @Html.TextBoxFor("TreatList", false, new { value = Treat.TreatId, @class="textbox"})
+          @Html.Label(treat.TreatName)
+          @Html.CheckBox("TreatList", false, new { value = treat.TreatId, @class="checkbox"})
         }
       </div>
       <input type="submit" value="Add Treats" class="btn" />
