@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Library.Models;
+using LuckyPierre.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace Library
+namespace LuckyPierre
 {
   public class Startup
   {
@@ -26,12 +26,12 @@ namespace Library
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<LibraryContext>(options => options
+        .AddDbContext<LuckyPierreContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       //new code
       services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<LibraryContext>()
+                .AddEntityFrameworkStores<LuckyPierreContext>()
                 .AddDefaultTokenProviders();
       
       services.Configure<IdentityOptions>(options =>

@@ -11,7 +11,7 @@ A weekly code review project for Epicodus school, which allows the Pierre, an am
 The following sitemap explains this database query relationship between Flavors and Treats in this schema.
 
 ## Database Structure
-<img src="Treats/wwwroot/assets/images/LibraryDatabase.png"          style="float: left; margin-right: 10px;" />
+<img src="LuckyPierre/wwwroot/assets/images/LPDatabase.png"          style="float: left; margin-right: 10px;" />
 
 ## Specifications
 
