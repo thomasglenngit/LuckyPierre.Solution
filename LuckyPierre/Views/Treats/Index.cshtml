@@ -1,0 +1,36 @@
+@{
+  Layout = "_Layout";
+}
+
+@using LuckyPierre.Models;
+@using System.Security.Claims
+@model List<LuckyPierre.Models.Treat>
+
+<h3>Welcome @User.Identity.Name</h3>
+
+<p>Find treat:</p>
+@using (Html.BeginForm("Index", "Treats", FormMethod.Get))
+{
+  <p>@Html.TextBox("searchTreat")</p>
+  <button class="btn" type="submit">Search</button>
+}
+<hr />
+<h3>Treat list:</h3>
+<hr />
+@if (Model.Any())
+{
+  @foreach (Treat treat in Model)
+  {
+    <p>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</p> 
+  }
+}
+else
+{
+  <p>No treats for you!</p>
+} 
+
+@if (User.Identity.IsAuthenticated)
+{
+  <p>@Html.ActionLink("Add new treat", "Create")</p>
+}
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

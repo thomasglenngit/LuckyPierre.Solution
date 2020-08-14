@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model LuckyPierre.Models.Treat
+
+<h3>Edit this treat:</h3>
+<hr />
+<h4>@Html.DisplayFor(model => @Model.TreatName)</h4>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+  <div class="form-group">
+    @Html.LabelFor(model => model.TreatName)
+    @Html.EditorFor(model => model.TreatName, new {@class = "form-control", @required  = "required"})
+  </div>
+  <input type="submit" value="Edit" class="btn" />
+}
+
+<p>@Html.ActionLink("Back to treats list", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
