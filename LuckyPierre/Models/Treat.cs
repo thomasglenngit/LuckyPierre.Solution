@@ -10,6 +10,7 @@ namespace LuckyPierre.Models
     }
     public int TreatId {get; set;}
     public string Name {get; set;}
+    public int Batches { get; set; }
     public virtual ApplicationUser User {get; set;}
     public virtual ICollection<TreatFlavor> Flavors {get; set;}
   }

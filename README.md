@@ -1,4 +1,4 @@
-# _Pierre's Treat Shop_
+# _Lucky Pierre's Treat Shop_
 
 #### _C#/.NET Project for [Epicodus](https://www.epicodus.com/), 2020.08.14_
 

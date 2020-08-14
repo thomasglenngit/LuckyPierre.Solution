@@ -5,7 +5,7 @@ using System.IO;
 
 namespace LuckyPierre.Models
 {
-  public class LuckyPierreConextFactory : IDesignTimeDbContextFactory<LuckyPierreContext>
+  public class LuckyPierreContextFactory : IDesignTimeDbContextFactory<LuckyPierreContext>
   {
     LuckyPierreContext IDesignTimeDbContextFactory<LuckyPierreContext>.CreateDbContext(string[] args)
     {
