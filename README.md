@@ -125,6 +125,8 @@ Entity is a framework which coordinates the properties associated with the proje
 
 2. Following the migration the database must be updated with the following command: `dotnet ef database update`. Again, if all goes well, after entering this command, the terminal will affirm the update and migration by displaying the migration with a unique migration number and the affirmation, "Done".
 
+3. Check to see that the migration appears in MySQl Workbench, as well as newly formed "Migrations" folder in your VSCode editor.
+
 ### Edit
 * To view and edit the code, open the application in your preferred code editor, such as Visual Studio Code.
 
