@@ -8,7 +8,7 @@ namespace LuckyPierre.Models
   {
     public DbSet<Flavor> Flavors { get; set; }
     public DbSet<Treat> Treats { get; set; }
-    public DbSet<TreatFlavor> TreatsFlavors { get; set; } 
+    public DbSet<TreatFlavor> TreatFlavors { get; set; } 
     public LuckyPierreContext(DbContextOptions options) : base(options) { }
   }
 }

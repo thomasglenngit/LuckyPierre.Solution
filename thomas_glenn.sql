@@ -16,206 +16,108 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `__EFMigrationsHistory`
+-- Dumping data for table `__EFMigrationsHistory`
 --
 
-DROP TABLE IF EXISTS `__EFMigrationsHistory`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `__EFMigrationsHistory` (
-  `MigrationId` varchar(95) NOT NULL,
-  `ProductVersion` varchar(32) NOT NULL,
-  PRIMARY KEY (`MigrationId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `__EFMigrationsHistory` WRITE;
+/*!40000 ALTER TABLE `__EFMigrationsHistory` DISABLE KEYS */;
+INSERT INTO `__EFMigrationsHistory` VALUES ('20200814172156_Initial','2.2.6-servicing-10079'),('20200814190025_Secondary','2.2.6-servicing-10079'),('20200814221121_Tertiary','2.2.6-servicing-10079'),('20200814234421_Quaternery','2.2.6-servicing-10079'),('20200815025807_Quintile','2.2.6-servicing-10079');
+/*!40000 ALTER TABLE `__EFMigrationsHistory` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetRoleClaims`
+-- Dumping data for table `AspNetRoleClaims`
 --
 
-DROP TABLE IF EXISTS `AspNetRoleClaims`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetRoleClaims` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `RoleId` varchar(255) NOT NULL,
-  `ClaimType` longtext,
-  `ClaimValue` longtext,
-  PRIMARY KEY (`Id`),
-  KEY `IX_AspNetRoleClaims_RoleId` (`RoleId`),
-  CONSTRAINT `FK_AspNetRoleClaims_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetRoleClaims` WRITE;
+/*!40000 ALTER TABLE `AspNetRoleClaims` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AspNetRoleClaims` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetRoles`
+-- Dumping data for table `AspNetRoles`
 --
 
-DROP TABLE IF EXISTS `AspNetRoles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetRoles` (
-  `Id` varchar(255) NOT NULL,
-  `Name` varchar(256) DEFAULT NULL,
-  `NormalizedName` varchar(256) DEFAULT NULL,
-  `ConcurrencyStamp` longtext,
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `RoleNameIndex` (`NormalizedName`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetRoles` WRITE;
+/*!40000 ALTER TABLE `AspNetRoles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AspNetRoles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetUserClaims`
+-- Dumping data for table `AspNetUserClaims`
 --
 
-DROP TABLE IF EXISTS `AspNetUserClaims`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetUserClaims` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `UserId` varchar(255) NOT NULL,
-  `ClaimType` longtext,
-  `ClaimValue` longtext,
-  PRIMARY KEY (`Id`),
-  KEY `IX_AspNetUserClaims_UserId` (`UserId`),
-  CONSTRAINT `FK_AspNetUserClaims_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetUserClaims` WRITE;
+/*!40000 ALTER TABLE `AspNetUserClaims` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AspNetUserClaims` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetUserLogins`
+-- Dumping data for table `AspNetUserLogins`
 --
 
-DROP TABLE IF EXISTS `AspNetUserLogins`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetUserLogins` (
-  `LoginProvider` varchar(255) NOT NULL,
-  `ProviderKey` varchar(255) NOT NULL,
-  `ProviderDisplayName` longtext,
-  `UserId` varchar(255) NOT NULL,
-  PRIMARY KEY (`LoginProvider`,`ProviderKey`),
-  KEY `IX_AspNetUserLogins_UserId` (`UserId`),
-  CONSTRAINT `FK_AspNetUserLogins_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetUserLogins` WRITE;
+/*!40000 ALTER TABLE `AspNetUserLogins` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AspNetUserLogins` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetUserRoles`
+-- Dumping data for table `AspNetUserRoles`
 --
 
-DROP TABLE IF EXISTS `AspNetUserRoles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetUserRoles` (
-  `UserId` varchar(255) NOT NULL,
-  `RoleId` varchar(255) NOT NULL,
-  PRIMARY KEY (`UserId`,`RoleId`),
-  KEY `IX_AspNetUserRoles_RoleId` (`RoleId`),
-  CONSTRAINT `FK_AspNetUserRoles_AspNetRoles_RoleId` FOREIGN KEY (`RoleId`) REFERENCES `aspnetroles` (`Id`) ON DELETE CASCADE,
-  CONSTRAINT `FK_AspNetUserRoles_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetUserRoles` WRITE;
+/*!40000 ALTER TABLE `AspNetUserRoles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AspNetUserRoles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetUsers`
+-- Dumping data for table `AspNetUsers`
 --
 
-DROP TABLE IF EXISTS `AspNetUsers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetUsers` (
-  `Id` varchar(255) NOT NULL,
-  `UserName` varchar(256) DEFAULT NULL,
-  `NormalizedUserName` varchar(256) DEFAULT NULL,
-  `Email` varchar(256) DEFAULT NULL,
-  `NormalizedEmail` varchar(256) DEFAULT NULL,
-  `EmailConfirmed` bit(1) NOT NULL,
-  `PasswordHash` longtext,
-  `SecurityStamp` longtext,
-  `ConcurrencyStamp` longtext,
-  `PhoneNumber` longtext,
-  `PhoneNumberConfirmed` bit(1) NOT NULL,
-  `TwoFactorEnabled` bit(1) NOT NULL,
-  `LockoutEnd` datetime(6) DEFAULT NULL,
-  `LockoutEnabled` bit(1) NOT NULL,
-  `AccessFailedCount` int(11) NOT NULL,
-  PRIMARY KEY (`Id`),
-  UNIQUE KEY `UserNameIndex` (`NormalizedUserName`),
-  KEY `EmailIndex` (`NormalizedEmail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetUsers` WRITE;
+/*!40000 ALTER TABLE `AspNetUsers` DISABLE KEYS */;
+INSERT INTO `AspNetUsers` VALUES ('d21af495-ce9c-4a0b-bce0-e81f8ad95c69','bc@bc.com','BC@BC.COM',NULL,NULL,_binary '\0','AQAAAAEAACcQAAAAEAE1OIP2uNm6uwu/6ZqwqLHKeRbtpc8hT28fUEhAaMock0K8wNlxbunmVca4+MEPjQ==','YUXMCHA3A4FG4DI7635HNKW3S7R44ZLX','adc39fc9-7bde-4a61-acc4-3df5f1b07cf2',NULL,_binary '\0',_binary '\0',NULL,_binary '',0);
+/*!40000 ALTER TABLE `AspNetUsers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `AspNetUserTokens`
+-- Dumping data for table `AspNetUserTokens`
 --
 
-DROP TABLE IF EXISTS `AspNetUserTokens`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `AspNetUserTokens` (
-  `UserId` varchar(255) NOT NULL,
-  `LoginProvider` varchar(255) NOT NULL,
-  `Name` varchar(255) NOT NULL,
-  `Value` longtext,
-  PRIMARY KEY (`UserId`,`LoginProvider`,`Name`),
-  CONSTRAINT `FK_AspNetUserTokens_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `AspNetUserTokens` WRITE;
+/*!40000 ALTER TABLE `AspNetUserTokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `AspNetUserTokens` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `Flavors`
+-- Dumping data for table `Flavors`
 --
 
-DROP TABLE IF EXISTS `Flavors`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `Flavors` (
-  `FlavorId` int(11) NOT NULL AUTO_INCREMENT,
-  `FlavorName` longtext,
-  `UserId` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`FlavorId`),
-  KEY `IX_Flavors_UserId` (`UserId`),
-  CONSTRAINT `FK_Flavors_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `Flavors` WRITE;
+/*!40000 ALTER TABLE `Flavors` DISABLE KEYS */;
+INSERT INTO `Flavors` VALUES (1,'Chocolate','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(2,'Peach','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(3,'Strawberry','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(4,'Roquefort','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(5,'Vanilla','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(6,'Raspberry','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(7,'Caramel','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(8,'Lemongrass','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(9,'Lavender','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(10,'Pineapple','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(11,'Cinnamon Nutmeg','d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(12,'Mocha Almond','d21af495-ce9c-4a0b-bce0-e81f8ad95c69');
+/*!40000 ALTER TABLE `Flavors` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `Treats`
+-- Dumping data for table `TreatFlavors`
 --
 
-DROP TABLE IF EXISTS `Treats`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `Treats` (
-  `TreatId` int(11) NOT NULL AUTO_INCREMENT,
-  `TreatName` longtext,
-  `Batches` int(11) NOT NULL,
-  `UserId` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`TreatId`),
-  KEY `IX_Treats_UserId` (`UserId`),
-  CONSTRAINT `FK_Treats_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `TreatFlavors` WRITE;
+/*!40000 ALTER TABLE `TreatFlavors` DISABLE KEYS */;
+INSERT INTO `TreatFlavors` VALUES (1,1,1),(2,2,3),(3,3,1);
+/*!40000 ALTER TABLE `TreatFlavors` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
--- Table structure for table `TreatsFlavors`
+-- Dumping data for table `Treats`
 --
 
-DROP TABLE IF EXISTS `TreatsFlavors`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
-CREATE TABLE `TreatsFlavors` (
-  `TreatFlavorId` int(11) NOT NULL AUTO_INCREMENT,
-  `TreatId` int(11) NOT NULL,
-  `FlavorId` int(11) NOT NULL,
-  PRIMARY KEY (`TreatFlavorId`),
-  KEY `IX_TreatsFlavors_FlavorId` (`FlavorId`),
-  KEY `IX_TreatsFlavors_TreatId` (`TreatId`),
-  CONSTRAINT `FK_TreatsFlavors_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
-  CONSTRAINT `FK_TreatsFlavors_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `Treats` WRITE;
+/*!40000 ALTER TABLE `Treats` DISABLE KEYS */;
+INSERT INTO `Treats` VALUES (1,'Lollipops',0,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(2,'Wine Gums',25,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(3,'Ice Cream Beards',100,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(4,'Fudge Bars',85,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(5,'Popsicles',35,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(6,'Pies',46,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(7,'Cakes',29,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(8,'Cookies',300,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69'),(9,'macarons',400,'d21af495-ce9c-4a0b-bce0-e81f8ad95c69');
+/*!40000 ALTER TABLE `Treats` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -226,4 +128,4 @@ CREATE TABLE `TreatsFlavors` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-14 17:46:50
+-- Dump completed on 2020-08-14 21:03:39

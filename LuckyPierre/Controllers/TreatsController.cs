@@ -129,7 +129,7 @@ namespace LuckyPierre.Controllers
       {
         foreach(int id in FlavorId)
         {
-          _db.TreatsFlavors.Add(new TreatFlavor() { FlavorId = id, TreatId = treat.TreatId });
+          _db.TreatFlavors.Add(new TreatFlavor() { FlavorId = id, TreatId = treat.TreatId });
         }
       }
       _db.SaveChanges();
@@ -139,8 +139,8 @@ namespace LuckyPierre.Controllers
     [HttpPost]
     public ActionResult DeleteFlavor(int joinId)
     {
-      var joinEntry = _db.TreatsFlavors.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
-      _db.TreatsFlavors.Remove(joinEntry);
+      var joinEntry = _db.TreatFlavors.FirstOrDefault(entry => entry.TreatFlavorId == joinId);
+      _db.TreatFlavors.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

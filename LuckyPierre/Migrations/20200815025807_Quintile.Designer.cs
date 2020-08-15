@@ -3,14 +3,16 @@ using System;
 using LuckyPierre.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LuckyPierre.Migrations
 {
     [DbContext(typeof(LuckyPierreContext))]
-    partial class LuckyPierreContextModelSnapshot : ModelSnapshot
+    [Migration("20200815025807_Quintile")]
+    partial class Quintile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

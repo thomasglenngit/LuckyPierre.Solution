@@ -82,6 +82,11 @@ Reopen the Navigator > Schemas tab. Right click and select Refresh All. Our new 
 The following is the query information for access this database on MySQL Workbench.
 ```
 CREATE DATABASE `thomas_glenn` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+CREATE TABLE `__EFMigrationsHistory` (
+  `MigrationId` varchar(95) NOT NULL,
+  `ProductVersion` varchar(32) NOT NULL,
+  PRIMARY KEY (`MigrationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Flavors` (
   `FlavorId` int(11) NOT NULL AUTO_INCREMENT,
   `FlavorName` longtext,
@@ -90,6 +95,16 @@ CREATE TABLE `Flavors` (
   KEY `IX_Flavors_UserId` (`UserId`),
   CONSTRAINT `FK_Flavors_AspNetUsers_UserId` FOREIGN KEY (`UserId`) REFERENCES `aspnetusers` (`Id`) ON DELETE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `TreatFlavors` (
+  `TreatFlavorId` int(11) NOT NULL AUTO_INCREMENT,
+  `TreatId` int(11) NOT NULL,
+  `FlavorId` int(11) NOT NULL,
+  PRIMARY KEY (`TreatFlavorId`),
+  KEY `IX_TreatFlavors_FlavorId` (`FlavorId`),
+  KEY `IX_TreatFlavors_TreatId` (`TreatId`),
+  CONSTRAINT `FK_TreatFlavors_Flavors_FlavorId` FOREIGN KEY (`FlavorId`) REFERENCES `flavors` (`FlavorId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_TreatFlavors_Treats_TreatId` FOREIGN KEY (`TreatId`) REFERENCES `treats` (`TreatId`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 CREATE TABLE `Treats` (
   `TreatId` int(11) NOT NULL AUTO_INCREMENT,
   `TreatName` longtext,
