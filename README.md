@@ -78,8 +78,10 @@ Click Start Import.
 
 Reopen the Navigator > Schemas tab. Right click and select Refresh All. Our new test database will appear.
 
+
+
 #### Query
-The following is the query information for access this database on MySQL Workbench.
+The following is the query information for access to this database on MySQL Workbench.
 ```
 CREATE DATABASE `thomas_glenn` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
 CREATE TABLE `__EFMigrationsHistory` (
@@ -116,6 +118,12 @@ CREATE TABLE `Treats` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ```
+#### Entity
+Entity is a framework which coordinates the properties associated with the project models, and the corresponding datatables stored in MySQL. In order to keep the database refreshed with user inputs and possible changes to the application models, the following commands must be made after these inputs and changes:
+
+1. In the terminal command line, enter: `dotnet ef migration add (name of migration)`. You can name the migration what you will, but remember that each new migration must have a unique name. Best practices are to name the first migration, "Initial", then "Secondary", etc. Also note that the first letter of the migration name should always be capitalized. If all goes well, the terminal will respond with the affirmation, "Done."
+
+2. Following the migration the database must be updated with the following command: `dotnet ef database update`. Again, if all goes well, after entering this command, the terminal will affirm the update and migration by displaying the migration with a unique migration number and the affirmation, "Done".
 
 ### Edit
 * To view and edit the code, open the application in your preferred code editor, such as Visual Studio Code.
