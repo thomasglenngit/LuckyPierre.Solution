@@ -32,7 +32,7 @@ namespace LuckyPierre.Controllers
         [HttpPost]
         public async Task<ActionResult> Register (RegisterViewModel model)
         {
-            var user = new ApplicationUser { UserName = model.Name };
+            var user = new ApplicationUser { UserName = model.Name, Email = model.Email  };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {

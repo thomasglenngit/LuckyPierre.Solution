@@ -4,6 +4,6 @@ namespace LuckyPierre.Models
 {
     public class ApplicationUser : IdentityUser
     {
-
+    
     }
 }
