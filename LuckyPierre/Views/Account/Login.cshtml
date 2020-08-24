@@ -10,12 +10,18 @@
 <hr />
 @using (Html.BeginForm())
 {
-
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-    
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+    @Html.LabelFor(model => model.Name)
+    <br>
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+    @Html.LabelFor(model => model.Email)
+    <br>
+    @Html.TextBoxFor(model => model.Email)
+    <br>
+    @Html.LabelFor(model => model.Password)
+    <br>
+    @Html.PasswordFor(model => model.Password)
+    <br><br>
 
     <input type="submit" value="Log in" class="btn btn-default" />
 }
